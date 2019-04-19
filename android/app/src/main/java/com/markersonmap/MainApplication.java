@@ -12,11 +12,15 @@ import com.reactnativenavigation.NavigationApplication;
 import com.reactnativenavigation.react.NavigationReactNativeHost;
 import com.reactnativenavigation.react.ReactGateway;
 
+import com.airbnb.android.react.maps.MapsPackage;
+
 import java.util.Arrays;
 import java.util.List;
 
+import com.horcrux.svg.SvgPackage;
+
 public class MainApplication extends NavigationApplication {
-    
+
     @Override
     protected ReactGateway createReactGateway() {
         ReactNativeHost host = new NavigationReactNativeHost(this, isDebug(), createAdditionalReactPackages()) {
@@ -38,9 +42,12 @@ public class MainApplication extends NavigationApplication {
         // No need to add RnnPackage and MainReactPackage
         return Arrays.<ReactPackage>asList(
             // eg. new VectorIconsPackage()
+            new MainReactPackage(),
+            new MapsPackage(),
+            new SvgPackage()
         );
     }
-  
+
     @Override
     public List<ReactPackage> createAdditionalReactPackages() {
         return getPackages();
